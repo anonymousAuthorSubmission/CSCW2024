@@ -1,0 +1,198 @@
+<head>
+  <!--The following 3 lines are an attempt to prevent caching. Ultimately they need to be removed from the distribution version-->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <style>
+    body {
+      margin: 0;
+    }
+  </style>
+  <!-- Bulma CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <!-- Three JS -->
+  <script src="//unpkg.com/three"></script>
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+  <!-- drawer.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/css/drawer.min.css">
+  <!-- drawer.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/js/drawer.min.js"></script>
+  <!-- Custom Drawer CSS -->
+  <link rel="stylesheet/less" type="text/css" href="css/drawer.less" />
+
+  <!-- iScroll -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll-probe.min.js"></script>
+
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Less JS -->
+  <script src="https://cdn.jsdelivr.net/npm/less@4.1.1"></script>
+  <!-- Load Leaflet code library: see https://leafletjs.com/download.html -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+    integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+    integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
+
+  <link rel="stylesheet" type=“text/css” href="https://wikiki.github.io/css/documentation.css" />
+
+  <link rel="stylesheet" href="css/MarkerCluster.css" />
+  <link rel="stylesheet" href="css/MarkerCluster.Default.css" />
+  <!-- <link rel="stylesheet" href="css/bulma-carousel.min.css" /> -->
+
+  <!-- <script type="text/javascript" src="dist/bulma-quickview.min.js"></script> -->
+
+  <script type="text/javascript" src="dist/leaflet.markercluster-src.js"></script>
+
+  <!-- Splide -->
+  <script src="
+ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
+ "></script>
+  <link href="
+ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
+ " rel="stylesheet">
+
+  <script src="dist/bulma-carousel.min.js"></script>
+
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    .hero #map {
+      position: relative;
+    }
+
+    #map {
+      height: 1800px;
+      z-index: 1;
+      /* 
+      height: 350px;
+      position: absolute;/
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0; */
+    }
+
+    #map .leaflet-control-zoom-in {
+      color: black;
+    }
+
+    #map .leaflet-control-zoom-out {
+      color: black;
+    }
+
+
+    /* #map-title {
+      position: relative;
+      margin-top: 10px;
+      margin-left: 50px;
+      float: left;
+      background: white;
+      border: 2px solid rgba(0, 0, 0, 0.2);
+      padding: 6px 8px;
+      font-family: Helvetica;
+      font-weight: bold;
+      font-size: 24px;
+      z-index: 800;
+    } */
+  </style>
+
+</head>
+
+<body>
+
+  <!-- right side drawer -->
+
+  <body class="drawer drawer--right" style="background-color: #E4E4E4;">
+    <header role="banner">
+      <nav class="drawer-nav">
+        <ul class="drawer-menu">
+          <div style="height: 3.25rem">
+            <p></p>
+          </div>
+          <div class="tile is-parent">
+            <article class="tile is-child notification is-dark nodeTitle">
+              <div class="content">
+
+                <div class="title is-3 ">
+                  <i class="fa-solid fa-duotone fa-message"></i>
+                  <div class="storyTitle" style="display:inline"></div>
+                </div>
+                <div class="subtitle is-5 storySubtitle"></div>
+
+              </div>
+            </article>
+          </div>
+
+          <div style="position: relative;">
+
+          
+
+          <section class="splide" aria-label="Splide Basic HTML Example">
+            <div class="splide__track">
+              <ul class="splide__list">
+              </ul>
+            </div>
+          </section>
+          </div>
+          
+          <section class="section storyText">
+          </section>
+        </ul>
+      </nav>
+    </header>
+
+    <iframe src="navbar.html"
+      onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
+
+
+    <section class="hero is-black">
+      <!-- Display the map and title with HTML division tags  -->
+      <!-- <div id="map-title">EDIT map title</div> -->
+      <div id="map"></div>
+    </section>
+
+
+    <script src="js/loader.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('.drawer').drawer({
+          class: {
+            nav: 'drawer-nav',
+            toggle: 'drawer-toggle',
+            overlay: 'drawer-overlay',
+            open: 'drawer-open',
+            close: 'drawer-close',
+            dropdown: 'drawer-dropdown'
+          },
+          iscroll: {
+            // Configuring the iScroll
+            // https://github.com/cubiq/iscroll#configuring-the-iscroll
+            mouseWheel: true,
+            scrollbars: true,
+            preventDefault: false
+          },
+          showOverlay: false
+        })
+      });
+
+  
+    </script>
+
+  </body>
+
+  </html>

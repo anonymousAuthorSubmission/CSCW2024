@@ -1,0 +1,29 @@
+@drawerSize: 55%; //24.25rem;
+
+.drawer--right{
+    .drawer-nav {
+      width: @drawerSize;
+      right: -@drawerSize;
+    }
+    &.drawer-open{
+      .drawer-nav {
+        right: 0;
+      }
+    }
+  }
+
+// .themeImage{
+//   width: 50%;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
+
+.scene-tooltip {
+  color: white;
+  background: black; 
+  border-radius: 5px;
+  padding: 5px;
+}
+.scene-tooltip:empty {
+  padding: 0px;
+}
